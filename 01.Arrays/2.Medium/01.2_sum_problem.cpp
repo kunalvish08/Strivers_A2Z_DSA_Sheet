@@ -1,42 +1,38 @@
-
 # 📌 LeetCode 1 — Two Sum
 
 ---
 
 ## 🏷️ Details
-- Difficulty: Easy  
-- Topic: Arrays, Hashing  
-- Pattern: Hash Map (Complement)  
-- Companies: Amazon, Google, Microsoft, Meta  
+Difficulty: Easy  
+Topic: Arrays + Hashing  
+Pattern: Complement (Hash Map)
 
 ---
 
 ## 📄 Problem
-Given an array `nums` and an integer `target`, return indices of the two numbers such that they add up to target.
+Given an array `nums` and a number `target`, find two indices such that:
 
-You may assume exactly one solution exists.
+nums[i] + nums[j] = target
+
+Return their indices.
+
+Only one solution exists.
 
 ---
 
 ## 💡 Intuition
-For every number, we ask:
+For every number, think:
+What do I need to make target?
 
-👉 “What do I need to reach the target?”
-
-That is:
-```
 
 need = target - current
 
-````
-
-If this “need” is already seen before → we found the answer.
+If this “need” is already seen before → answer found.
 
 ---
 
-## 🐢 Brute Force Approach
+## 🐢 Brute Force
 
-### Idea
 Check every pair.
 
 ### Code
@@ -60,16 +56,22 @@ public:
 
 ### Complexity
 
-* Time: O(n²)
-* Space: O(1)
+Time: O(n²)
+Space: O(1)
 
 ---
 
-## 🚀 Optimal Approach (Hash Map)
+## 🚀 Optimal Approach
 
-### Idea
+Use Hash Map.
 
-Store numbers while traversing and check if complement exists.
+Idea:
+Store numbers while moving forward.
+
+For each number:
+check if (target - number) exists.
+
+---
 
 ### Code
 
@@ -78,7 +80,7 @@ class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
 
-        unordered_map<int, int> mp;
+        unordered_map<int,int> mp;
 
         for(int i = 0; i < nums.size(); i++) {
 
@@ -96,35 +98,37 @@ public:
 };
 ```
 
+---
+
 ### Complexity
 
-* Time: O(n)
-* Space: O(n)
+Time: O(n)
+Space: O(n)
 
 ---
 
-## 🎯 Key Idea
+## 🎯 Key Point
+
+Always think:
 
 ```
-need = target - num
+target - current = required number
 ```
-
-Check if need already exists in map.
 
 ---
 
 ## 🧩 Pattern
 
-* Pair sum problem
+* Pair sum
+* Hashing
 * Unsorted array
-* Use Hash Map
 
 ---
 
-## 📝 Quick Revision
+## 📝 Revision
 
-* Try pairs → Brute force
-* Use map → store visited numbers
+* Try all pairs → brute force
+* Store seen numbers → hashmap
 * Check complement while iterating
 
 ---
@@ -132,13 +136,4 @@ Check if need already exists in map.
 ## 🔥 One Line Rule
 
 Unsorted array + pair sum → Hash Map
-
-```
-
----
-
-If you want next step, I can make:
-👉 **:contentReference[oaicite:0]{index=0}**  
-👉 Or :contentReference[oaicite:1]{index=1}
-```
 
