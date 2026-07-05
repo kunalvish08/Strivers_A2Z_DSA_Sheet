@@ -1,11 +1,3 @@
-For **Sort Colors (LeetCode 75)**, the notes should naturally progress from **Brute Force → Better → Optimal (Dutch National Flag Algorithm)** because this problem has three meaningful approaches.
-
-This makes it much easier to understand *why* the optimal solution exists instead of memorizing it.
-
-I would structure it like this:
-
----
-
 ````md
 # 📌 LeetCode 75 — Sort Colors
 
