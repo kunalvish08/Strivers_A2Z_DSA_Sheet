@@ -167,3 +167,97 @@ public:
 - Brute: Check every subarray and compute its sum from scratch.
 - Better: Reuse the running sum while extending the subarray.
 - Optimal: Use Kadane's Algorithm to discard negative-prefix sums and find the maximum subarray in a single traversal.
+
+
+
+
+    
+## Follow-up: Print One of the Possible Maximum Sum Subarrays
+
+### Idea
+
+Along with Kadane's Algorithm, maintain the starting and ending indices of the maximum subarray.
+
+### Algorithm
+
+1. Initialize:
+   - `sum = 0`
+   - `maxi = INT_MIN`
+   - `start = 0`
+   - `ansStart = 0`
+   - `ansEnd = 0`
+2. Traverse the array.
+3. If `sum == 0`, mark the current index as the potential starting index.
+4. Add the current element to `sum`.
+5. If `sum > maxi`, update:
+   - `maxi`
+   - `ansStart`
+   - `ansEnd`
+6. If `sum < 0`, reset `sum = 0`.
+7. Print elements from `ansStart` to `ansEnd`.
+
+### Time Complexity
+
+- O(N)
+
+### Space Complexity
+
+- O(1)
+
+### C++ Code
+
+```cpp
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+
+        int sum = 0;
+        int maxi = INT_MIN;
+
+        int start = 0;
+        int ansStart = 0;
+        int ansEnd = 0;
+
+        for(int i = 0; i < nums.size(); i++) {
+
+            if(sum == 0)
+                start = i;
+
+            sum += nums[i];
+
+            if(sum > maxi) {
+                maxi = sum;
+                ansStart = start;
+                ansEnd = i;
+            }
+
+            if(sum < 0)
+                sum = 0;
+        }
+
+        // Print one of the possible maximum subarrays
+        for(int i = ansStart; i <= ansEnd; i++)
+            cout << nums[i] << " ";
+
+        return maxi;
+    }
+};
+```
+
+### Example
+
+Input:
+
+```text
+nums = [-2,1,-3,4,-1,2,1,-5,4]
+```
+
+Output:
+
+```text
+Maximum Sum = 6
+Subarray = [4, -1, 2, 1]
+```
+
+> Note: If multiple subarrays have the same maximum sum, this algorithm returns the first one encountered.
+````
