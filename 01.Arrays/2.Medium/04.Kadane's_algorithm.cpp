@@ -1,7 +1,7 @@
 # Kadane's Algorithm | Maximum Subarray Sum
-LeetCode 53: maximum-subarray
 
-  
+Leetcode 53. Maximum Subarray
+
 ## 1. Brute Force
 
 ### Idea
@@ -17,11 +17,11 @@ Generate every possible subarray, calculate its sum, and keep track of the maxim
 
 ### Time Complexity
 
-* **O(N³)** (if the sum is calculated from scratch for every subarray)
+- O(N³) (if the sum is calculated from scratch for every subarray)
 
 ### Space Complexity
 
-* **O(1)**
+- O(1)
 
 ### C++ Code
 
@@ -54,7 +54,7 @@ public:
 
 ---
 
-# 2. Better Approach
+## 2. Better Approach
 
 ### Idea
 
@@ -70,11 +70,11 @@ Instead of calculating the sum again for every subarray, keep adding the next el
 
 ### Time Complexity
 
-* **O(N²)**
+- O(N²)
 
 ### Space Complexity
 
-* **O(1)**
+- O(1)
 
 ### C++ Code
 
@@ -104,7 +104,7 @@ public:
 
 ---
 
-# 3. Optimal Approach (Kadane's Algorithm)
+## 3. Optimal Approach (Kadane's Algorithm)
 
 ### Intuition
 
@@ -121,11 +121,11 @@ If the running sum becomes negative, it will only decrease the sum of any future
 
 ### Time Complexity
 
-* **O(N)**
+- O(N)
 
 ### Space Complexity
 
-* **O(1)**
+- O(1)
 
 ### C++ Code
 
@@ -156,14 +156,14 @@ public:
 
 # Complexity Comparison
 
-| Approach           | Time Complexity | Space Complexity |
-| ------------------ | --------------- | ---------------- |
-| Brute              | **O(N³)**       | **O(1)**         |
-| Better             | **O(N²)**       | **O(1)**         |
-| Optimal (Kadane's) | **O(N)**        | **O(1)**         |
+| Approach | Time Complexity | Space Complexity |
+|----------|-----------------|------------------|
+| Brute | O(N³) | O(1) |
+| Better | O(N²) | O(1) |
+| Optimal (Kadane's Algorithm) | O(N) | O(1) |
 
 ### Interview Flow
 
-* **Brute:** Check every subarray and compute its sum from scratch.
-* **Better:** Reuse the running sum while extending the subarray.
-* **Optimal:** Use Kadane's Algorithm to discard negative-prefix sums and find the maximum subarray in a single traversal.
+- Brute: Check every subarray and compute its sum from scratch.
+- Better: Reuse the running sum while extending the subarray.
+- Optimal: Use Kadane's Algorithm to discard negative-prefix sums and find the maximum subarray in a single traversal.
